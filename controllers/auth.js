@@ -29,7 +29,8 @@ exports.login = (req, res) => {
                 password: user.password,
                 email:user.email,
                 // id : user.id,
-                token: token
+                token: token,
+		image:user.image,
             })
         }else{
             res.send({
