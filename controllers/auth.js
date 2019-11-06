@@ -57,8 +57,9 @@ exports.register = (req, res) => {
                         const token = jwt.sign({ userId: user.id}, 'my-secret-key')
                         res.send({
                             response:{
-                                message:"Success registered user",
+                                // message:"success",
                                 username:user.username,
+                                password: user.password,
                                 email:user.email,
                                 token: token,
                                 image:user.image,
