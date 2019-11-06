@@ -56,14 +56,12 @@ exports.register = (req, res) => {
                     if(user){
                         const token = jwt.sign({ userId: user.id}, 'my-secret-key')
                         res.send({
-                            response:{
-                                // message:"success",
-                                username:user.username,
-                                password: user.password,
-                                email:user.email,
-                                token: token,
-                                image:user.image,
-                            }
+                            // message:"success",
+                            username:user.username,
+                            password: user.password,
+                            email:user.email,
+                            token: token,
+                            image:user.image,
                         })
                     }else{
                         res.send({
