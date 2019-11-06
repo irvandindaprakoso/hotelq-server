@@ -24,8 +24,6 @@ exports.login = (req, res) => {
         if(user){
             const token = jwt.sign({ userId: user.id}, 'my-secret-key')
             res.send({
-                // message: "Success logged in",
-                error:false,
                 username:user.username,
                 password: user.password,
                 email:user.email,
@@ -52,12 +50,10 @@ exports.register = (req, res) => {
                     email:req.body.email,
                     password: md5(req.body.password),
                     image:req.body.image,
-                    // password: req.body.password
                 }).then(user => {
                     if(user){
                         const token = jwt.sign({ userId: user.id}, 'my-secret-key')
                         res.send({
-                            // message:"success",
                             username:user.username,
                             password: user.password,
                             email:user.email,
