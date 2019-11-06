@@ -25,6 +25,7 @@ exports.login = (req, res) => {
             const token = jwt.sign({ userId: user.id}, 'my-secret-key')
             res.send({
                 // message: "Success logged in",
+                error:false,
                 username:user.username,
                 password: user.password,
                 email:user.email,
