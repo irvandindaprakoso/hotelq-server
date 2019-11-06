@@ -28,9 +28,8 @@ exports.login = (req, res) => {
                 username:user.username,
                 password: user.password,
                 email:user.email,
-                // id : user.id,
                 token: token,
-		image:user.image,
+                image:user.image,
             })
         }else{
             res.send({
@@ -51,7 +50,7 @@ exports.register = (req, res) => {
                     username:req.body.username,
                     email:req.body.email,
                     password: md5(req.body.password),
-                    image:"https://via.placeholder.com/1080"
+                    image:req.body.image,
                     // password: req.body.password
                 }).then(user => {
                     if(user){
@@ -61,7 +60,8 @@ exports.register = (req, res) => {
                                 message:"Success registered user",
                                 username:user.username,
                                 email:user.email,
-                                token: token
+                                token: token,
+                                image:user.image,
                             }
                         })
                     }else{
@@ -75,3 +75,4 @@ exports.register = (req, res) => {
         })
     
 }
+
